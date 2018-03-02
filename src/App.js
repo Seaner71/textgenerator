@@ -40,15 +40,15 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-        <h1> ReactJS Text Generator </h1>
+        <h1 className='text-center'> ReactJS Text Generator </h1>
         <hr/>
         <form className='form-inline'>
           <div className='form-group'>
-            <label>Paragraphs </label>
+            <label className='font-italic'>Paragraphs </label>
             <Text value={this.state.paras} onChange={this.changeParas.bind(this)}/>
           </div>
           <div className='form-group'>
-            <label>Format </label>
+            <label className='font-weight-bold'>Format </label>
             <Select value={this.state.format} onChange={this.showFormat.bind(this)}/>
           </div>
         </form>
