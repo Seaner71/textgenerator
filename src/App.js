@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import Output from './Components/Output';
+import Select from './Components/Controls/Select';
 import axios from 'axios';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      paras: 6,
-      format: true,
+      paras: 3,
+      format: 'html',
       text: ''
     }
   }
@@ -28,10 +30,22 @@ class App extends Component {
       });
   }
 
+  showFormat(format) {
+    this.setState({format: format}, this.getSampleText);
+  }
+
   render() {
     return (
-      <div className="App">
-        Hello
+      <div className="App container">
+        <h1> ReactJS Text Generator </h1>
+        <hr/>
+        <form className='form-inline'>
+          <div className='form-group'>
+            <label>Format </label>
+            <Select value={this.state.format} onChange={this.showFormat.bind(this)}/>
+          </div>
+        </form>
+        <Output value={this.state.text}/>
       </div>
     );
   }
